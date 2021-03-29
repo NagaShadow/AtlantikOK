@@ -240,9 +240,9 @@ namespace AtlantikOK
             this.lblAdulte.ForeColor = System.Drawing.Color.Black;
             this.lblAdulte.Location = new System.Drawing.Point(23, 58);
             this.lblAdulte.Name = "lblAdulte";
-            this.lblAdulte.Size = new System.Drawing.Size(72, 26);
+            this.lblAdulte.Size = new System.Drawing.Size(119, 26);
             this.lblAdulte.TabIndex = 0;
-            this.lblAdulte.Text = "Adulte :";
+            this.lblAdulte.Text = "Adulte Test :";
             // 
             // lvReservationClient
             // 
