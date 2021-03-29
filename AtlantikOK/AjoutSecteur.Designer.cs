@@ -117,6 +117,7 @@ namespace AtlantikOK
             this.lblAjoutOK.Name = "lblAjoutOK";
             this.lblAjoutOK.Size = new System.Drawing.Size(3, 2);
             this.lblAjoutOK.TabIndex = 5;
+            this.lblAjoutOK.Text = null;
             // 
             // AjoutSecteur
             // 

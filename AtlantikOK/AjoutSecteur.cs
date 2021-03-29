@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace AtlantikOK
 {
@@ -26,30 +27,38 @@ namespace AtlantikOK
 
         private void btnAjouterSecteur_Click(object sender, EventArgs e)
         {
-            string TextSelection;
-            TextSelection = tbxNomSecteur.Text;
-            MySqlConnection maCnx;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
-            try
+            string TextSelection = tbxNomSecteur.Text;
+            var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$");
+            var résultatTest = objetRegEx.Match(tbxNomSecteur.Text);
+
+            if (!résultatTest.Success)
             {
-                string requête;
-                maCnx.Open();
-                requête = "Insert into secteur(nom) values (@TextSelection)";
-                var maCde = new MySqlCommand(requête, maCnx);
-                maCde.Parameters.AddWithValue("@TextSelection", TextSelection);
-                maCde.ExecuteNonQuery();
-                lblAjoutOK.Text = "Ajout effectué avec succès !";
+                tbxNomSecteur.FillColor = Color.Red;
+                MessageBox.Show("Entrée un nom correct (Ex : Bordeaux)");
             }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Erreur " + ex.ToString());
-            }
-            finally
-            {
-                tbxNomSecteur.Text = "";
-                if (maCnx is object & maCnx.State == ConnectionState.Open)
+            else
+            { 
+                MySqlConnection maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                try
                 {
-                    maCnx.Close(); // on se déconnecte
+                    maCnx.Open();
+                    string requête = "Insert into secteur(nom) values (@TextSelection)";
+                    var maCde = new MySqlCommand(requête, maCnx);
+                    maCde.Parameters.AddWithValue("@TextSelection", TextSelection);
+                    maCde.ExecuteNonQuery();
+                    lblAjoutOK.Text = "Ajout effectué avec succès !";
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Erreur " + ex.ToString());
+                }
+                finally
+                {
+                    tbxNomSecteur.Text = "";
+                    if (maCnx is object & maCnx.State == ConnectionState.Open)
+                    {
+                        maCnx.Close(); // on se déconnecte
+                    }
                 }
             }
         }
