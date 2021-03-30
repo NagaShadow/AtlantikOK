@@ -14,7 +14,7 @@ namespace AtlantikOK
 {
     public partial class ListerTraversee : Form
     {
-        MySqlConnection maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+        MySqlConnection maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
         public ListerTraversee()
         {
             InitializeComponent();
@@ -57,7 +57,7 @@ namespace AtlantikOK
         {
             cmbLiaison.Items.Clear();
             MySqlConnection maCnx;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             MySqlDataReader jeuEnr = null;
             string requête = "";
             if (lbxSecteurs.SelectedItem != null)
@@ -78,7 +78,7 @@ namespace AtlantikOK
                 while (jeuEnr.Read())
                 {
                     MySqlConnection maCnx2;
-                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                     MySqlDataReader jeuEnr2 = null;
                     string requête2 = "SELECT nom FROM port WHERE noport = " + (int)jeuEnr["noport_depart"];
                     try
@@ -99,7 +99,7 @@ namespace AtlantikOK
                         maCnx2.Close();
                     }
                     MySqlConnection maCnx3;
-                    maCnx3 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                    maCnx3 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                     MySqlDataReader jeuEnr3 = null;
                     string requête3 = "SELECT nom FROM port WHERE noport = " + (int)jeuEnr["noport_arrivee"];
                     try
@@ -171,7 +171,7 @@ namespace AtlantikOK
 
                 while (jeuEnr.Read())
                 {
-                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                     MySqlDataReader jeuEnr2 = null;
                     requête2 = "SELECT * FROM bateau, contenir WHERE bateau.nobateau = contenir.nobateau AND bateau.nobateau = @bateau";
                     maCnx2.Open();

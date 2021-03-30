@@ -21,7 +21,7 @@ namespace AtlantikOK
         private void btnModifier_Click(object sender, EventArgs e)
         {
             MySqlConnection maCnx;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
             {
                 string requête;

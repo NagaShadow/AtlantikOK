@@ -20,14 +20,13 @@ namespace AtlantikOK
 
         private void CreerLiaison_Load(object sender, EventArgs e)
         {
-            MySqlConnection maCnx;
+            // Ajout des secteurs dans la ListBox //
+            MySqlConnection maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password="); 
             MySqlDataReader jeuEnr = null;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
             try
             {
-                string requête;
                 maCnx.Open();
-                requête = "Select * from secteur";
+                string requête = "Select * from secteur";
                 var maCde = new MySqlCommand(requête, maCnx);
                 jeuEnr = maCde.ExecuteReader();
                 while (jeuEnr.Read())
@@ -41,19 +40,13 @@ namespace AtlantikOK
             }
             finally
             {
-                if (jeuEnr is object & !jeuEnr.IsClosed)
-                {
-                    jeuEnr.Close(); // s'il existe et n'est pas déjà fermé
-                }
-                if (maCnx is object & maCnx.State == ConnectionState.Open)
-                {
-                    maCnx.Close(); // on se déconnecte
-                }
+                jeuEnr.Close();
+                maCnx.Close();
             }
             cmbArriver.Items.Clear();
             MySqlConnection maCnx2;
             MySqlDataReader jeuEnr2 = null;
-            maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             string requête2;
             try
             {
@@ -88,7 +81,7 @@ namespace AtlantikOK
             cmbDepart.Items.Clear();
             MySqlConnection maCnx;
             MySqlDataReader jeuEnr = null;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
             {
                 string requête;
@@ -121,7 +114,7 @@ namespace AtlantikOK
         private void btnAjouterSecteur_Click(object sender, EventArgs e)
         {
             MySqlConnection maCnx;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
             {
                 string requête;

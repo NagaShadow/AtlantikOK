@@ -13,7 +13,7 @@ namespace AtlantikOK
 {
     public partial class ReservationClient : Form
     {
-        MySqlConnection maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+        MySqlConnection maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
         public ReservationClient()
         {
             InitializeComponent();
@@ -54,7 +54,7 @@ namespace AtlantikOK
         private void cmbClient_SelectedIndexChanged(object sender, EventArgs e)
         {
             MySqlConnection maCnx;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             string requête = "SELECT * FROM traversee, reservation, liaison WHERE noclient = @noclient AND traversee.notraversee = reservation.notraversee AND liaison.noliaison = traversee.noliaison";
             MySqlDataReader jeuEnr = null;
             try
@@ -79,7 +79,7 @@ namespace AtlantikOK
 
                 while (jeuEnr.Read())
                 {
-                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                     maCnx2.Open();
                     requête2 = "SELECT * FROM port, liaison WHERE port.noport = liaison.noport_depart AND liaison.noliaison = @noliaison";
                     var maCde2 = new MySqlCommand(requête2, maCnx2);
@@ -91,7 +91,7 @@ namespace AtlantikOK
                     maCnx2.Close();
 
                     MySqlConnection maCnx3;
-                    maCnx3 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                    maCnx3 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                     maCnx3.Open();
                     requête2 = "SELECT * FROM port, liaison WHERE port.noport = liaison.noport_arrivee AND liaison.noliaison = @noliaison";
                     var maCde3 = new MySqlCommand(requête2, maCnx3);
@@ -126,7 +126,7 @@ namespace AtlantikOK
         private void lvReservationClient_SelectedIndexChanged(object sender, EventArgs e)
         {
             MySqlConnection maCnx;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             MySqlDataReader jeuEnr = null;
             try
             {
@@ -137,7 +137,7 @@ namespace AtlantikOK
                 while (jeuEnr.Read())
                 {
                     MySqlConnection maCnx2;
-                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                     MySqlDataReader jeuEnr2 = null;
                     try
                     {

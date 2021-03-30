@@ -35,7 +35,7 @@ namespace AtlantikOK
             else
             {
                 tbxNomSecteur.FillColor = SystemColors.Control;
-                MySqlConnection maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                MySqlConnection maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                 try
                 {
                     maCnx.Open();

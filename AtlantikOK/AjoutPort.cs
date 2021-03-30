@@ -21,7 +21,7 @@ namespace AtlantikOK
         private void AjoutPort_Load(object sender, EventArgs e)
         {
             // On prends tout les secteurs contenu dans Secteur et on les ajoute dans la ListBox //
-            MySqlConnection CnxSecteurs = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            MySqlConnection CnxSecteurs = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             MySqlDataReader jeuEnr = null;
             try
             {
@@ -50,12 +50,14 @@ namespace AtlantikOK
             // Controle de saisie sur la TextBox du Port //
             var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$"); 
             var résultatTest = objetRegEx.Match(tbxNomPort.Text);
-            // On ajout dans la DTB le port 
+            // On ajout dans la DTB le port //
+
+
 
             if (résultatTest.Success)
             {
                 tbxNomPort.FillColor = SystemColors.Control;
-                MySqlConnection CnxInsertPort = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                MySqlConnection CnxInsertPort = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                 try
                 {
                     CnxInsertPort.Open();

@@ -23,7 +23,7 @@ namespace AtlantikOK
             cmbModifBateau.Items.Clear();
             MySqlConnection maCnx;
             MySqlDataReader jeuEnr = null;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
             {
                 string requête;
@@ -56,13 +56,13 @@ namespace AtlantikOK
         private void btnModifBateau_Click(object sender, EventArgs e)
         {
             MySqlConnection maCnx;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             MySqlConnection maCnxInsertA;
-            maCnxInsertA = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnxInsertA = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             MySqlConnection maCnxInsertB;
-            maCnxInsertB = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnxInsertB = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             MySqlConnection maCnxInsertC;
-            maCnxInsertC = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnxInsertC = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
             {
                 string requête2;

@@ -22,7 +22,7 @@ namespace AtlantikOK
         {
             MySqlConnection maCnx;
             MySqlDataReader jeuEnr = null;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
             {
                 string requête;
@@ -54,7 +54,7 @@ namespace AtlantikOK
         private void lbxSecteurs_SelectedIndexChanged(object sender, EventArgs e)
         {
             MySqlConnection maCnx;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             MySqlDataReader jeuEnr = null;
             string requête = "";
             if (lbxSecteurs.SelectedItem != null)
@@ -76,7 +76,7 @@ namespace AtlantikOK
                 {
 
                     MySqlConnection maCnx2;
-                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                    maCnx2 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                     MySqlDataReader jeuEnr2 = null;
                     string requête2 = "SELECT nom FROM port WHERE noport = " + (int)jeuEnr["noport_depart"];
                     try
@@ -97,7 +97,7 @@ namespace AtlantikOK
                         maCnx2.Close();
                     }
                     MySqlConnection maCnx3;
-                    maCnx3 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                    maCnx3 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
                     MySqlDataReader jeuEnr3 = null;
                     string requête3 = "SELECT nom FROM port WHERE noport = " + (int)jeuEnr["noport_arrivee"];
                     try
@@ -137,7 +137,7 @@ namespace AtlantikOK
 
             }
             MySqlConnection maCnx4;
-            maCnx4 = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=;"); 
+            maCnx4 = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=;"); 
             MySqlDataReader jeuEnr4 = null;
             try
             {
@@ -168,7 +168,7 @@ namespace AtlantikOK
         {
 
             MySqlConnection maCnxInsertTarif;
-            maCnxInsertTarif = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+            maCnxInsertTarif = new MySqlConnection("server=localhost;user=root;database=atlantik;port=3306;password=");
             try
             {
                 maCnxInsertTarif.Open();
