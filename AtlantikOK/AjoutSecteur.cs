@@ -22,6 +22,7 @@ namespace AtlantikOK
 
         private void btnAjouterSecteur_Click(object sender, EventArgs e)
         {
+            // COntrole de saisie avec la TextBox pour avoir uniquement des lettres //
             string TextSelection = tbxNomSecteur.Text;
             var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$");
             var résultatTest = objetRegEx.Match(tbxNomSecteur.Text);
@@ -53,7 +54,7 @@ namespace AtlantikOK
                     tbxNomSecteur.Text = "";
                     if (maCnx is object & maCnx.State == ConnectionState.Open)
                     {
-                        maCnx.Close(); // on se déconnecte
+                        maCnx.Close();
                     }
                 }
             }

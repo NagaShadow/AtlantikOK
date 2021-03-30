@@ -31,10 +31,10 @@ namespace AtlantikOK
         {
             this.btnAjouterPort = new Guna.UI2.WinForms.Guna2Button();
             this.tbxNomPort = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.LblTitreNomPort = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.panelBarre = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTitre = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblTitreSecteurs = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbxSecteurs = new System.Windows.Forms.ListBox();
             this.lblPortAjouter = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SuspendLayout();
@@ -82,44 +82,44 @@ namespace AtlantikOK
             this.tbxNomPort.Size = new System.Drawing.Size(213, 25);
             this.tbxNomPort.TabIndex = 8;
             // 
-            // guna2HtmlLabel2
+            // LblTitreNomPort
             // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(336, 119);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(142, 26);
-            this.guna2HtmlLabel2.TabIndex = 7;
-            this.guna2HtmlLabel2.Text = "Nom du  Port :";
+            this.LblTitreNomPort.BackColor = System.Drawing.Color.Transparent;
+            this.LblTitreNomPort.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitreNomPort.Location = new System.Drawing.Point(336, 119);
+            this.LblTitreNomPort.Name = "LblTitreNomPort";
+            this.LblTitreNomPort.Size = new System.Drawing.Size(142, 26);
+            this.LblTitreNomPort.TabIndex = 7;
+            this.LblTitreNomPort.Text = "Nom du  Port :";
             // 
-            // guna2Panel1
+            // panelBarre
             // 
-            this.guna2Panel1.FillColor = System.Drawing.Color.Black;
-            this.guna2Panel1.Location = new System.Drawing.Point(38, 72);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(245, 3);
-            this.guna2Panel1.TabIndex = 6;
+            this.panelBarre.FillColor = System.Drawing.Color.Black;
+            this.panelBarre.Location = new System.Drawing.Point(38, 72);
+            this.panelBarre.Name = "panelBarre";
+            this.panelBarre.ShadowDecoration.Parent = this.panelBarre;
+            this.panelBarre.Size = new System.Drawing.Size(245, 3);
+            this.panelBarre.TabIndex = 6;
             // 
-            // guna2HtmlLabel1
+            // lblTitre
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(38, 26);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(235, 39);
-            this.guna2HtmlLabel1.TabIndex = 5;
-            this.guna2HtmlLabel1.Text = "Ajouter un Port";
+            this.lblTitre.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitre.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitre.Location = new System.Drawing.Point(38, 26);
+            this.lblTitre.Name = "lblTitre";
+            this.lblTitre.Size = new System.Drawing.Size(235, 39);
+            this.lblTitre.TabIndex = 5;
+            this.lblTitre.Text = "Ajouter un Port";
             // 
-            // guna2HtmlLabel3
+            // lblTitreSecteurs
             // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(38, 119);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(106, 26);
-            this.guna2HtmlLabel3.TabIndex = 17;
-            this.guna2HtmlLabel3.Text = "Secteurs : ";
+            this.lblTitreSecteurs.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitreSecteurs.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreSecteurs.Location = new System.Drawing.Point(38, 119);
+            this.lblTitreSecteurs.Name = "lblTitreSecteurs";
+            this.lblTitreSecteurs.Size = new System.Drawing.Size(106, 26);
+            this.lblTitreSecteurs.TabIndex = 17;
+            this.lblTitreSecteurs.Text = "Secteurs : ";
             // 
             // lbxSecteurs
             // 
@@ -146,13 +146,13 @@ namespace AtlantikOK
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1080, 690);
             this.Controls.Add(this.lblPortAjouter);
-            this.Controls.Add(this.guna2HtmlLabel3);
+            this.Controls.Add(this.lblTitreSecteurs);
             this.Controls.Add(this.lbxSecteurs);
             this.Controls.Add(this.btnAjouterPort);
             this.Controls.Add(this.tbxNomPort);
-            this.Controls.Add(this.guna2HtmlLabel2);
-            this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.guna2HtmlLabel1);
+            this.Controls.Add(this.LblTitreNomPort);
+            this.Controls.Add(this.panelBarre);
+            this.Controls.Add(this.lblTitre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AjoutPort";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -167,10 +167,10 @@ namespace AtlantikOK
 
         private Guna.UI2.WinForms.Guna2Button btnAjouterPort;
         private Guna.UI2.WinForms.Guna2TextBox tbxNomPort;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel LblTitreNomPort;
+        private Guna.UI2.WinForms.Guna2Panel panelBarre;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitre;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitreSecteurs;
         private System.Windows.Forms.ListBox lbxSecteurs;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblPortAjouter;
     }

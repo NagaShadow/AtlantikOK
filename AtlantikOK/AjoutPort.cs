@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace AtlantikOK
 {
@@ -19,15 +20,14 @@ namespace AtlantikOK
         }
         private void AjoutPort_Load(object sender, EventArgs e)
         {
-            MySqlConnection maCnx;
+            // On prends tout les secteurs contenu dans Secteur et on les ajoute dans la ListBox //
+            MySqlConnection CnxSecteurs = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
             MySqlDataReader jeuEnr = null;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
             try
             {
-                string requête;
-                maCnx.Open();
-                requête = "Select * from secteur";
-                var maCde = new MySqlCommand(requête, maCnx);
+                CnxSecteurs.Open();
+                string requête = "Select * from secteur";
+                var maCde = new MySqlCommand(requête, CnxSecteurs);
                 jeuEnr = maCde.ExecuteReader();
                 while (jeuEnr.Read())
                 {
@@ -40,45 +40,49 @@ namespace AtlantikOK
             }
             finally
             {
-                if (jeuEnr is object & !jeuEnr.IsClosed)
-                {
-                    jeuEnr.Close(); // s'il existe et n'est pas déjà fermé
-                }
-                if (maCnx is object & maCnx.State == ConnectionState.Open)
-                {
-                    maCnx.Close(); // on se déconnecte
-                }
+                jeuEnr.Close();
+                CnxSecteurs.Close();
             }
         }
 
         private void btnAjouterPort_Click(object sender, EventArgs e)
         {
-            MySqlConnection maCnx;
-            maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
-            try
+            // Controle de saisie sur la TextBox du Port //
+            var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$"); 
+            var résultatTest = objetRegEx.Match(tbxNomPort.Text);
+            // On ajout dans la DTB le port 
+
+            if (résultatTest.Success)
             {
-                string requête;
-                maCnx.Open();
-                requête = "Insert into port(nosecteur, nom) values (@lbxSelectionne, @TextSelection)";
-                var maCde = new MySqlCommand(requête, maCnx);
-                maCde.Parameters.AddWithValue("@TextSelection", tbxNomPort.Text);
-                maCde.Parameters.AddWithValue("@lbxSelectionne", ((Secteur)lbxSecteurs.SelectedItem).GetNo());
-                maCde.ExecuteNonQuery();
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Erreur " + ex.ToString());
-            }
-            finally
-            {
-                lblPortAjouter.Text = "";
-                if (maCnx is object & maCnx.State == ConnectionState.Open)
+                tbxNomPort.FillColor = SystemColors.Control;
+                MySqlConnection CnxInsertPort = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
+                try
                 {
-                    maCnx.Close(); // on se déconnecte
+                    CnxInsertPort.Open();
+                    string requête = "Insert into port(nosecteur, nom) values (@lbxSelectionne, @TextSelection)";
+                    var maCde = new MySqlCommand(requête, CnxInsertPort);
+                    maCde.Parameters.AddWithValue("@TextSelection", tbxNomPort.Text);
+                    maCde.Parameters.AddWithValue("@lbxSelectionne", ((Secteur)lbxSecteurs.SelectedItem).GetNo());
+                    maCde.ExecuteNonQuery();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Erreur " + ex.ToString());
+                }
+                finally
+                {
+                    tbxNomPort.Text = "";
+                    lblPortAjouter.Text = "Ajout effectué avec succès !";
+                    CnxInsertPort.Close();
                 }
             }
-            tbxNomPort.Text = "";
-            lblPortAjouter.Text = "Ajout effectué avec succès !";
+            // Si la condition n'est pas remplis, on informe l'utilisateur de rentrer un nom correct //
+            else
+            {
+                tbxNomPort.FillColor = Color.Red;
+                MessageBox.Show("Entrée un nom correct (Ex : Bordeaux)");
+            }
+
         }
     }
 }

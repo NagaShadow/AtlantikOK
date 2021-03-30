@@ -22,6 +22,7 @@ namespace AtlantikOK
 
         private void ListerTraversee_Load(object sender, EventArgs e)
         {
+            DatePicker.Value = DateTime.Now;
             MySqlDataReader jeuEnr = null;
             try
             {
