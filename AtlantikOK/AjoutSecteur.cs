@@ -20,11 +20,6 @@ namespace AtlantikOK
             InitializeComponent();
         }
 
-        public void AjoutSecteur_Load(object sender, EventArgs e)
-        {
-            lblAjoutOK.Text = "";
-        }
-
         private void btnAjouterSecteur_Click(object sender, EventArgs e)
         {
             string TextSelection = tbxNomSecteur.Text;
@@ -37,7 +32,8 @@ namespace AtlantikOK
                 MessageBox.Show("Entrée un nom correct (Ex : Bordeaux)");
             }
             else
-            { 
+            {
+                tbxNomSecteur.FillColor = SystemColors.Control;
                 MySqlConnection maCnx = new MySqlConnection("server=localhost;user=root;database=atlantikok;port=3306;password=");
                 try
                 {
